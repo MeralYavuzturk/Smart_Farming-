@@ -1,53 +1,74 @@
-🌱 Akıllı Tarım - Bitki Hastalık Tespiti
-📌 Proje Amacı
+🌱 Smart Farming : Plant Disease Detection
+📌 Project Overview
+This project aims to develop an Artificial Intelligence system capable of identifying plant diseases from leaf images. By leveraging deep learning techniques, the system provides automated diagnosis to assist in early intervention and agricultural management.
 
-Bu proje, bitki yapraklarından hastalık tespiti yapan bir yapay zeka sistemi geliştirmeyi amaçlamaktadır.
+⚙️ System Architecture
+🔹 Input
+Image Format: User-provided leaf images (JPEG/PNG).
 
-⚙️ Sistem Mimarisi
-🔹 Input (Girdi)
-Kullanıcıdan alınan yaprak görüntüsü (jpg/png)
-🔹 Output (Çıktı)
-disease: Tahmin edilen hastalık adı
-confidence: Modelin tahmin güven oranı
+🔹 Output
+disease: The predicted name of the identified plant disease.
 
-📊 Örnek Çıktı
+confidence: The probability score (confidence level) of the prediction.
+
+📊 Sample Output
+JSON
 {
   "disease": "Tomato___Early_blight",
   "confidence": 0.99
 }
+🔗 Backend API & Usage
+The frontend or integration layer can utilize the following function to retrieve predictions:
 
-🔗 Tahmin Kullanımı (Backend API)
-
-Frontend tarafı aşağıdaki fonksiyonu kullanarak tahmin alabilir:
-
+Python
 from src.predict import predict_image
 
+# Process the image and get the result
 result = predict_image(image)
-Output:
-{
-  "disease": "Tomato___Early_blight",
-  "confidence": 0.95
-}
 
-🧠 Kullanılan Teknolojiler
-TensorFlow / Keras
-OpenCV
-NumPy & Pandas
-Matplotlib
+print(result)
+Example Output:
+{'disease': 'Tomato___Early_blight', 'confidence': 0.95}
 
-📁 Proje Yapısı
-src/ → model ve veri işlemleri
-dataset/ → eğitim verisi
-models/ → eğitilmiş model
-app/ → arayüz (ileride)
+🧠 Technologies Used
+Deep Learning: TensorFlow / Keras
 
-🚀 Çalıştırma
-1. Ortam oluştur
+Image Processing: OpenCV
+
+Data Analysis: NumPy & Pandas
+
+Visualization: Matplotlib
+
+📁 Project Structure
+src/ – Core logic for model architecture and data processing.
+
+dataset/ – Training and validation image datasets.
+
+models/ – Saved pre-trained and final models.
+
+app/ – Interface and deployment files (Future Work).
+
+🚀 Getting Started
+1. Environment Setup
+Create and activate a virtual environment to manage dependencies:
+Bash
 python -m venv venv
+# On Windows:
 venv\Scripts\activate
-2. Kütüphaneleri yükle
+# On macOS/Linux:
+source venv/bin/activate
+
+2. Installation
+Install the required libraries:
+Bash
 pip install -r requirements.txt
-3. Model eğit
+
+3. Model Training
+To train the model from scratch, run:
+Bash
 python src/model.py
-4. Tahmin yap
+
+4. Running Inference (Prediction)
+To make a prediction on a sample image:
+Bash
 python src/predict.py
