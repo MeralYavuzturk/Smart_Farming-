@@ -53,9 +53,9 @@ app/ – Interface and deployment files (Future Work).
 Create and activate a virtual environment to manage dependencies:
 Bash
 python -m venv venv
-# On Windows:
+#On Windows:
 venv\Scripts\activate
-# On macOS/Linux:
+#On macOS/Linux:
 source venv/bin/activate
 
 2. Installation
