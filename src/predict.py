@@ -16,10 +16,10 @@ class_names = [
     'Tomato___Early_blight'
 ]
 
-def predict_image(image_path):
+def predict_image(image):
 
-    img = Image.open(image_path)
-    img = img.resize((224, 224))
+    
+    img = image.resize((224, 224))
 
     img = np.array(img) / 255.0
     img = np.expand_dims(img, axis=0)
@@ -36,5 +36,6 @@ def predict_image(image_path):
 
 
 if __name__ == "__main__":
-    result = predict_image("testimage.jpg")  # buraya test foto koyacağız
+    img = Image.open("testimage.jpg")  # sadece test için
+    result = predict_image(img)
     print(result)
