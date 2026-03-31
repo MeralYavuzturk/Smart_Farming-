@@ -16,6 +16,19 @@ confidence: Modelin tahmin güven oranı
   "confidence": 0.99
 }
 
+🔗 Tahmin Kullanımı (Backend API)
+
+Frontend tarafı aşağıdaki fonksiyonu kullanarak tahmin alabilir:
+
+from src.predict import predict_image
+
+result = predict_image(image)
+Output:
+{
+  "disease": "Tomato___Early_blight",
+  "confidence": 0.95
+}
+
 🧠 Kullanılan Teknolojiler
 TensorFlow / Keras
 OpenCV
