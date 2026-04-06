@@ -76,8 +76,9 @@ elif sayfa == "🔍 Hastalık Tespiti":
         )
 
         if yuklenen_dosya is not None:
-            img = Image.open(yuklenen_dosya)
-            st.image(img, caption='Yüklenen Fotoğraf', use_container_width=True)
+           image = Image.open(yuklenen_dosya)
+           image = image.convert("RGB")
+           st.image(image, caption='Yüklenen Fotoğraf', use_container_width=True)
 
     with col_r:
         st.subheader("🧪 Analiz Sonucu")
