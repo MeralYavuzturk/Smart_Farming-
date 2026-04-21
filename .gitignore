@@ -2,3 +2,5 @@ env/
 dataset/
 __pycache__/
 .vscode/
+venv/
+models/
