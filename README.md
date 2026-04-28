@@ -1,74 +1,42 @@
-🌱 Smart Farming : Plant Disease Detection
-📌 Project Overview
-This project aims to develop an Artificial Intelligence system capable of identifying plant diseases from leaf images. By leveraging deep learning techniques, the system provides automated diagnosis to assist in early intervention and agricultural management.
+🌱 Plant Disease Detection System (Smart Farming)
+This project is an end-to-end software solution that aims to detecet diseases in plant leaves using image analysis methods with deep learning techniques.
 
-⚙️ System Architecture
-🔹 Input
-Image Format: User-provided leaf images (JPEG/PNG).
+🎯 Project Purpose
+By analyzing plant leaf photos uploaded by users;
 
-🔹 Output
-disease: The predicted name of the identified plant disease.
+To determine whether the plant is healthy or diseased,
 
-confidence: The probability score (confidence level) of the prediction.
+İf it is diseased,to diagnose the type of disease,
 
-📊 Sample Output
-JSON
-{
-  "disease": "Tomato___Early_blight",
-  "confidence": 0.99
-}
-🔗 Backend API & Usage
-The frontend or integration layer can utilize the following function to retrieve predictions:
+To establish a rapid decision support mechanism for farmers and hobby gardens.
 
-Python
-from src.predict import predict_image
+🏗️ Project Architecture & Folder Structure
+The project is built on a modular and scalable backend architecture:
+├── app/              # Frontend: Streamlit-based user interface
+├── data/             # Raporting: Training logs and performance data (CSV)
+├── dataset/          # Data Set: Train, Validation and Test folders
+├── models/           # Storage: Best saved model files (.h5)
+├── notebooks/        # Ar-Ge: Model testing and data analysis
+└── src/              # Backend: The main processing engine of the project
+    ├── data_loader.py    # Data loading and preprocessing operations
+    ├── train_helper.py   # Callbacks, Raporting and Model Loading 
+    └── sistem_kontrol.py # Environment and library validation
 
-# Process the image and get the result
-result = predict_image(image)
+🚀 Installation and Operation
+To run the project in your own environment:
 
-print(result)
-Example Output:
-{'disease': 'Tomato___Early_blight', 'confidence': 0.95}
+Clone the Repository: git clone [https://github.com/MeralYavuzturk/Smart_Farming-]
 
-🧠 Technologies Used
-Deep Learning: TensorFlow / Keras
+Create the virtual environment: python -m venv env
 
-Image Processing: OpenCV
+Install the libraries: pip install -r requirements.txt
 
-Data Analysis: NumPy & Pandas
+Start the interface: streamlit run app/main.py
 
-Visualization: Matplotlib
+👥 Project Team
+Meral YAVUZTÜRK
+Zelal ERGİN
+Ayşe MUTLUAY
+Merve ÖZCAN 
+Perihan ÇELİKOĞLU
 
-📁 Project Structure
-src/ – Core logic for model architecture and data processing.
-
-dataset/ – Training and validation image datasets.
-
-models/ – Saved pre-trained and final models.
-
-app/ – Interface and deployment files (Future Work).
-
-🚀 Getting Started
-1. Environment Setup
-Create and activate a virtual environment to manage dependencies:
-Bash
-python -m venv venv
-#On Windows:
-venv\Scripts\activate
-#On macOS/Linux:
-source venv/bin/activate
-
-2. Installation
-Install the required libraries:
-Bash
-pip install -r requirements.txt
-
-3. Model Training
-To train the model from scratch, run:
-Bash
-python src/model.py
-
-4. Running Inference (Prediction)
-To make a prediction on a sample image:
-Bash
-python src/predict.py
