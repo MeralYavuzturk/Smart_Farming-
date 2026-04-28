@@ -55,4 +55,3 @@ Ayşe MUTLUAY
 Merve ÖZCAN 
 
 Perihan ÇELİKOĞLU
-
