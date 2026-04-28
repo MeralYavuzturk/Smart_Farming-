@@ -1,4 +1,5 @@
 🌱 Plant Disease Detection System (Smart Farming)
+
 This project is an end-to-end software solution that aims to detecet diseases in plant leaves using image analysis methods with deep learning techniques.
 
 🎯 Project Purpose
