@@ -15,12 +15,19 @@ To establish a rapid decision support mechanism for farmers and hobby gardens.
 ## 🏗️ Project Architecture & Folder Structure
 
 The project is built on a modular and scalable backend architecture:
+
 ├── app/              # Frontend: Streamlit-based user interface
+
 ├── data/             # Raporting: Training logs and performance data (CSV)
+
 ├── dataset/          # Data Set: Train, Validation and Test folders
+
 ├── models/           # Storage: Best saved model files (.h5)
+
 ├── notebooks/        # Ar-Ge: Model testing and data analysis
+
 └── src/              # Backend: The main processing engine of the project
+
     ├── data_loader.py    # Data loading and preprocessing operations
     ├── train_helper.py   # Callbacks, Raporting and Model Loading 
     └── sistem_kontrol.py # Environment and library validation
@@ -40,8 +47,12 @@ Start the interface: streamlit run app/main.py
 ## 👥 Project Team
 
 Meral YAVUZTÜRK
+
 Zelal ERGİN
+
 Ayşe MUTLUAY
+
 Merve ÖZCAN 
+
 Perihan ÇELİKOĞLU
 
