@@ -14,25 +14,27 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- 2. CUSTOM CSS (Görsellerdeki Dark & Green Tema) ---
+# --- 2. CUSTOM CSS (Modern & Neutral Design) ---
 st.markdown("""
     <style>
     .main {
-        background-color: #0e1117;
-        color: white;
+        background-color: #f5f7f9;
     }
     [data-testid="stSidebar"] {
         background-color: #1e2124;
     }
+
     /* Buton Tasarımı */
     .stButton>button {
         width: 100%;
         border-radius: 8px;
         height: 3em;
-        background-color: #2e7d32;
+
+         background-color: #2e7d32;
         color: white;
         font-weight: bold;
         border: none;
+
     }
     /* Sonuç Kartı Tasarımı (Görsel 3'teki beyaz kart) */
     .result-card {
@@ -51,6 +53,7 @@ st.markdown("""
         color: #4caf50;
         border: 1px solid #2e7d32;
         font-size: 14px;
+
     }
     </style>
     """, unsafe_allow_html=True)
@@ -110,11 +113,13 @@ with st.sidebar:
     st.markdown('<div class="status-box">Database: Connected</div>', unsafe_allow_html=True)
 
 # --- 5. HOME PAGE (Görsel 1) ---
+
 if page == "🏠 Home":
     st.title("🌿 Smart Farming: Plant Disease Detection")
     st.write("### AI-Powered Agricultural Analysis")
     
-    col_text, col_img = st.columns([1, 1.2])
+
+   col_text, col_img = st.columns([1, 1.2])
     with col_text:
        st.markdown("""
         *   **📸 Upload Photo:** Submit an image of a plant leaf to the system.
@@ -163,11 +168,13 @@ elif page == "🔍 Disease Detection":
                                 <h1 style="margin:0; color:#2ecc71; font-size:40px;">{score*100:.1f}%</h1>
                                 <p style="margin:0; color:#bdc3c7; font-size:12px;">Confidence</p>
                                 <p style="margin-top:10px; color:#bdc3c7; font-size:11px;">Hız: {res_time:.4f}s</p>
+
                             </div>
                         </div>
                     </div>
                 """, unsafe_allow_html=True)
                 st.progress(score)
         else:
-            # Görsel 2'deki mavi bilgi kutusu
+
+ 
             st.info("Please upload a leaf photo to begin analysis.")
