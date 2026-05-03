@@ -116,14 +116,10 @@ if page == "🏠 Home":
     
     col_text, col_img = st.columns([1, 1.2])
     with col_text:
-        st.write("""
-        Our collaborative project focuses on leveraging Deep Learning to monitor crop health. 
-        By analyzing leaf patterns, the system provides instant feedback on potential diseases.
-        
-        **Technical Scope:**
-        * CNN-based Image Classification
-        * Multi-class Disease Detection
-        * Sustainable Agriculture Support
+       st.markdown("""
+        *   **📸 Upload Photo:** Submit an image of a plant leaf to the system.
+        *   **🔍 Instant Diagnosis:** See which disease the leaf has.
+        *   **✅ Apply With Confidence:** Be assured of accurate diagnosis with a high rate of success.
         """)
     with col_img:
         # Görseldeki bitki fotoğrafı
