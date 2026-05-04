@@ -98,4 +98,6 @@ if __name__ == "__main__":
             print(f"Confidence: {result['confidence']*100:.2f}%")
             print(f"Response Time: {result['response_time']:.4f}s")
     else:
+
         print(f"Test image not found at: {test_img_path}")
+

@@ -14,16 +14,16 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- 2. CUSTOM CSS (dark& green theme in the images) ---
+# --- 2. CUSTOM CSS (Modern & Neutral Design) ---
 st.markdown("""
     <style>
     .main {
-        background-color: #0e1117;
-        color: white;
+        background-color: #f5f7f9;
     }
     [data-testid="stSidebar"] {
         background-color: #1e2124;
     }
+
     /* Buton Tasarımı */
     .stButton>button {
         width: 100%;
@@ -34,7 +34,7 @@ st.markdown("""
         font-weight: bold;
         border: none;
     }
-    /* Sonuç Kartı Tasarımı (Görsel 3'teki beyaz kart) */
+    /* Sonuç Kartı Tasarımı */
     .result-card {
         background-color: white;
         padding: 20px;
@@ -42,6 +42,7 @@ st.markdown("""
         color: #2c3e50;
         margin-top: 15px;
         border-left: 10px solid #2e7d32;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .status-box {
         padding: 10px;
@@ -97,7 +98,7 @@ def predict_disease(image):
     except Exception as e:
         return "Error", str(e), 0.0, 0.0
 
-# --- 4. SIDEBAR (Design in images 1 and 2) ---
+# --- 4. SIDEBAR ---
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/628/628283.png", width=100)
     st.title("Project Menu")
@@ -109,23 +110,22 @@ with st.sidebar:
     st.markdown('<div class="status-box">AI Engine: Online</div>', unsafe_allow_html=True)
     st.markdown('<div class="status-box">Database: Connected</div>', unsafe_allow_html=True)
 
-# --- 5. HOME PAGE (İmage 1) ---
+# --- 5. HOME PAGE ---
 if page == "🏠 Home":
     st.title("🌿 Smart Farming: Plant Disease Detection")
     st.write("### AI-Powered Agricultural Analysis")
     
     col_text, col_img = st.columns([1, 1.2])
     with col_text:
-       st.markdown("""
+        st.markdown("""
         *   **📸 Upload Photo:** Submit an image of a plant leaf to the system.
         *   **🔍 Instant Diagnosis:** See which disease the leaf has.
         *   **✅ Apply With Confidence:** Be assured of accurate diagnosis with a high rate of success.
         """)
     with col_img:
-        # Plant photo in the image
         st.image("https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800", use_container_width=True)
 
-# --- 6. DISEASE DETECTION PAGE (İmage 2 & 3) ---
+# --- 6. DISEASE DETECTION PAGE ---
 elif page == "🔍 Disease Detection":
     st.title("🔍 Diagnosis Panel")
     
@@ -147,7 +147,6 @@ elif page == "🔍 Disease Detection":
                 with st.spinner('Analyzing patterns...'):
                     plant, disease, score, res_time = predict_disease(image)
                 
-                # The white results card design in image 3
                 st.markdown(f"""
                     <div class="result-card">
                         <p style="color:#7f8c8d; font-size:12px; font-weight:bold; margin-bottom:5px;">DETECTION SUMMARY</p>
@@ -169,5 +168,4 @@ elif page == "🔍 Disease Detection":
                 """, unsafe_allow_html=True)
                 st.progress(score)
         else:
-            # The blue information box in image 3
             st.info("Please upload a leaf photo to begin analysis.")
