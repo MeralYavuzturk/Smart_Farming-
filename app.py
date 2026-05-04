@@ -29,14 +29,12 @@ st.markdown("""
         width: 100%;
         border-radius: 8px;
         height: 3em;
-
-         background-color: #2e7d32;
+        background-color: #2e7d32;
         color: white;
         font-weight: bold;
         border: none;
-
     }
-    /* Sonuç Kartı Tasarımı (Görsel 3'teki beyaz kart) */
+    /* Sonuç Kartı Tasarımı */
     .result-card {
         background-color: white;
         padding: 20px;
@@ -44,6 +42,7 @@ st.markdown("""
         color: #2c3e50;
         margin-top: 15px;
         border-left: 10px solid #2e7d32;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .status-box {
         padding: 10px;
@@ -53,7 +52,6 @@ st.markdown("""
         color: #4caf50;
         border: 1px solid #2e7d32;
         font-size: 14px;
-
     }
     </style>
     """, unsafe_allow_html=True)
@@ -100,7 +98,7 @@ def predict_disease(image):
     except Exception as e:
         return "Error", str(e), 0.0, 0.0
 
-# --- 4. SIDEBAR (Görsel 1 & 2'deki tasarım) ---
+# --- 4. SIDEBAR ---
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/628/628283.png", width=100)
     st.title("Project Menu")
@@ -112,25 +110,22 @@ with st.sidebar:
     st.markdown('<div class="status-box">AI Engine: Online</div>', unsafe_allow_html=True)
     st.markdown('<div class="status-box">Database: Connected</div>', unsafe_allow_html=True)
 
-# --- 5. HOME PAGE (Görsel 1) ---
-
+# --- 5. HOME PAGE ---
 if page == "🏠 Home":
     st.title("🌿 Smart Farming: Plant Disease Detection")
     st.write("### AI-Powered Agricultural Analysis")
     
-
-   col_text, col_img = st.columns([1, 1.2])
+    col_text, col_img = st.columns([1, 1.2])
     with col_text:
-       st.markdown("""
+        st.markdown("""
         *   **📸 Upload Photo:** Submit an image of a plant leaf to the system.
         *   **🔍 Instant Diagnosis:** See which disease the leaf has.
         *   **✅ Apply With Confidence:** Be assured of accurate diagnosis with a high rate of success.
         """)
     with col_img:
-        # Görseldeki bitki fotoğrafı
         st.image("https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800", use_container_width=True)
 
-# --- 6. DISEASE DETECTION PAGE (Görsel 2 & 3) ---
+# --- 6. DISEASE DETECTION PAGE ---
 elif page == "🔍 Disease Detection":
     st.title("🔍 Diagnosis Panel")
     
@@ -152,7 +147,6 @@ elif page == "🔍 Disease Detection":
                 with st.spinner('Analyzing patterns...'):
                     plant, disease, score, res_time = predict_disease(image)
                 
-                # Görsel 3'teki beyaz sonuç kartı tasarımı
                 st.markdown(f"""
                     <div class="result-card">
                         <p style="color:#7f8c8d; font-size:12px; font-weight:bold; margin-bottom:5px;">DETECTION SUMMARY</p>
@@ -168,13 +162,10 @@ elif page == "🔍 Disease Detection":
                                 <h1 style="margin:0; color:#2ecc71; font-size:40px;">{score*100:.1f}%</h1>
                                 <p style="margin:0; color:#bdc3c7; font-size:12px;">Confidence</p>
                                 <p style="margin-top:10px; color:#bdc3c7; font-size:11px;">Hız: {res_time:.4f}s</p>
-
                             </div>
                         </div>
                     </div>
                 """, unsafe_allow_html=True)
                 st.progress(score)
         else:
-
- 
             st.info("Please upload a leaf photo to begin analysis.")
