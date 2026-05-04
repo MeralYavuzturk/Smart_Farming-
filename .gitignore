@@ -1,5 +1,6 @@
 env/
 dataset/
-__pycache__/
+_pycache_/
 .vscode/
 venv/
+#models/
