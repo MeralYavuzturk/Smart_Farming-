@@ -14,7 +14,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- 2. CUSTOM CSS (Görsellerdeki Dark & Green Tema) ---
+# --- 2. CUSTOM CSS (dark& green theme in the images) ---
 st.markdown("""
     <style>
     .main {
@@ -97,7 +97,7 @@ def predict_disease(image):
     except Exception as e:
         return "Error", str(e), 0.0, 0.0
 
-# --- 4. SIDEBAR (Görsel 1 & 2'deki tasarım) ---
+# --- 4. SIDEBAR (Design in images 1 and 2) ---
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/628/628283.png", width=100)
     st.title("Project Menu")
@@ -109,7 +109,7 @@ with st.sidebar:
     st.markdown('<div class="status-box">AI Engine: Online</div>', unsafe_allow_html=True)
     st.markdown('<div class="status-box">Database: Connected</div>', unsafe_allow_html=True)
 
-# --- 5. HOME PAGE (Görsel 1) ---
+# --- 5. HOME PAGE (İmage 1) ---
 if page == "🏠 Home":
     st.title("🌿 Smart Farming: Plant Disease Detection")
     st.write("### AI-Powered Agricultural Analysis")
@@ -122,10 +122,10 @@ if page == "🏠 Home":
         *   **✅ Apply With Confidence:** Be assured of accurate diagnosis with a high rate of success.
         """)
     with col_img:
-        # Görseldeki bitki fotoğrafı
+        # Plant photo in the image
         st.image("https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800", use_container_width=True)
 
-# --- 6. DISEASE DETECTION PAGE (Görsel 2 & 3) ---
+# --- 6. DISEASE DETECTION PAGE (İmage 2 & 3) ---
 elif page == "🔍 Disease Detection":
     st.title("🔍 Diagnosis Panel")
     
@@ -147,7 +147,7 @@ elif page == "🔍 Disease Detection":
                 with st.spinner('Analyzing patterns...'):
                     plant, disease, score, res_time = predict_disease(image)
                 
-                # Görsel 3'teki beyaz sonuç kartı tasarımı
+                # The white results card design in image 3
                 st.markdown(f"""
                     <div class="result-card">
                         <p style="color:#7f8c8d; font-size:12px; font-weight:bold; margin-bottom:5px;">DETECTION SUMMARY</p>
@@ -169,5 +169,5 @@ elif page == "🔍 Disease Detection":
                 """, unsafe_allow_html=True)
                 st.progress(score)
         else:
-            # Görsel 2'deki mavi bilgi kutusu
+            # The blue information box in image 3
             st.info("Please upload a leaf photo to begin analysis.")
